@@ -1,53 +1,53 @@
 import React, { Component } from 'react';
-import {Tab, Tabs} from 'react-toolbox';
+import '../App.css';
+import icon from '../images/icon.png';
 
 class Header extends React.Component {
-  state = {
-    index: 1,
-    fixedIndex: 1,
-    inverseIndex: 1
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      active: false,
+    };
+    this.toggleClass= this.toggleClass.bind(this);
+  }
 
-  handleTabChange = (index) => {
-    this.setState({index});
-  };
+  toggleClass() {
+    const currentState = this.state.active;
+    this.setState({ active: !currentState });
+    
+  }
 
-  handleFixedTabChange = (index) => {
-    this.setState({fixedIndex: index});
-  };
-
-  handleInverseTabChange = (index) => {
-    this.setState({inverseIndex: index});
-  };
-
-  handleActive = () => {
-    console.log('Special one activated');
-  };
-
-  render () {
+  render() {
     return (
-      <section>
-        <Tabs index={this.state.index} onChange={this.handleTabChange}>
-          <Tab label='Primary'><small>Primary content</small></Tab>
-          <Tab label='Secondary' onActive={this.handleActive}><small>Secondary content</small></Tab>
-          <Tab label='Third' disabled><small>Disabled content</small></Tab>
-          <Tab label='Fourth' hidden><small>Fourth content hidden</small></Tab>
-          <Tab label='Fifth'><small>Fifth content</small></Tab>
-        </Tabs>
-        <h5>Fixed Tabs</h5>
-        <Tabs index={this.state.fixedIndex} onChange={this.handleFixedTabChange} fixed>
-          <Tab label='First'><small>First Content</small></Tab>
-          <Tab label='Second'><small>Second Content</small></Tab>
-          <Tab label='Third'><small>Third Content</small></Tab>
-        </Tabs>
-        <h5>Inverse Tabs</h5>
-        <Tabs index={this.state.inverseIndex} onChange={this.handleInverseTabChange} inverse>
-          <Tab label='First'><small>First Content</small></Tab>
-          <Tab label='Second'><small>Second Content</small></Tab>
-          <Tab label='Third'><small>Third Content</small></Tab>
-          <Tab label='Disabled' disabled><small>Disabled Content</small></Tab>
-        </Tabs>
-      </section>
+      <div className="header-menu">
+        <ul>
+          <li>&nbsp;<img className="icon" src={icon}/></li>
+          <li><a href="#home">PEPPA FILMTOPIA</a></li>
+          <li className="user-mgmt"><a href="#signup">Sign Up</a></li>
+          <li className="user-mgmt"><a href="#login">Log In</a></li>
+        </ul>
+        <ul className="navi-bar">
+          <li><a className={this.state.active ? 'active': null} 
+                 onClick={this.toggleClass}  href="#home">Home</a></li>
+          <li><a href="#discover">Discover</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#bs">Best Sellers</a></li>
+          <li className="dropdown">
+            <a href="javascript:void(0)" className="dropbtn">Favorites ❤</a>
+            <div className="dropdown-content">
+              <a href="#">Likes</a>
+              <a href="#">Comments</a>
+              <a href="#">Marks</a>
+            </div>
+          </li>
+        </ul>
+      <div className="button_box2">
+        <form className="form-wrapper-2 cf">
+          <input type="text" placeholder="Search movies here..." required></input>
+          <button type="submit">Search</button>
+        </form>
+      </div>
+      </div>
     );
   }
 }
