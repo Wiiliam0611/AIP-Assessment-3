@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import '../stylesheets/gallery.css'
 
 class Gallery extends React.Component {
     state = {
-        slideIndex = 1
+        slideIndex: 1
     };
 
 showSlides(slideIndex);
