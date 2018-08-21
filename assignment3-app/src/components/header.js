@@ -20,14 +20,14 @@ class Header extends React.Component {
   render() {
     return (
       <div className="header-menu">
-        <ul>
+        <ul className="header-bar">
           <li>&nbsp;<img className="icon" src={icon}/></li>
           <li><a href="#home">PEPPA FILMTOPIA</a></li>
           <li className="user-mgmt"><a href="#signup">Sign Up</a></li>
           <li className="user-mgmt"><a href="#login">Log In</a></li>
         </ul>
         <ul className="navi-bar">
-          <li><a className={this.state.active ? 'active': null} 
+          <li><a className={this.state.active ? 'tab-active': null} 
                  onClick={this.toggleClass}  href="#home">Home</a></li>
           <li><a href="#discover">Discover</a></li>
           <li><a href="#news">News</a></li>
