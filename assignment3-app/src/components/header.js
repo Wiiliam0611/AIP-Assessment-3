@@ -43,10 +43,8 @@ class Header extends React.Component {
         </ul>
       <div className="button_box2">
         <form className="form-wrapper-2 cf">
-        <div className="search">
-          <input type="text" placeholder="Search movies here..." required></input>
-          <button type="submit">Search</button>
-        </div>
+              <input type="text" placeholder="Search movies here..." required></input>
+            <button type="submit">Search</button>
         </form>
       </div>
       </div>

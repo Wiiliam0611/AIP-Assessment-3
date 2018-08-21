@@ -9,18 +9,18 @@ class Gallery extends React.Component {
 showSlides(slideIndex);
 
 // Next/previous controls
-plusSlides(n) {
+plusSlides = (n) => {
     this.setState({slideIndex: slideIndex + n});
     showSlides(slideIndex);
 }
 
 // Thumbnail image controls
-currentSlide(n) {
+currentSlide = (n) => {
     this.setState({slideIndex: n});
     showSlides(slideIndex);
 }
 
-showSlides(n) {
+showSlides = (n) => {
   var i;
   var slides = document.getElementsByClassName("mySlides");
   var dots = document.getElementsByClassName("dot");
@@ -35,18 +35,6 @@ showSlides(n) {
   slides[slideIndex-1].style.display = "block"; 
   dots[slideIndex-1].className += " active";
 }
-  
-    handleTabChange = (index) => {
-      this.setState({index});
-    };
-  
-    handleFixedTabChange = (index) => {
-      this.setState({fixedIndex: index});
-    };
-  
-    handleInverseTabChange = (index) => {
-      this.setState({inverseIndex: index});
-    };
   
     render () {
       return (
